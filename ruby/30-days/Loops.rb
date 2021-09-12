@@ -5,5 +5,6 @@ def multiples(n)
         i += 1
     end
 end
+
 multiples(3)
 
