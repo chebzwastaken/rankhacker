@@ -48,4 +48,3 @@ def summationSG(i):
 
 
 print(f(342))
-
