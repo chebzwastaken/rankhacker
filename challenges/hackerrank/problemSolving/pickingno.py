@@ -6,7 +6,7 @@ def pickingNumbers(a):
 
     arr = [arr[i:i+2] for i in range(0, len(arr)) if arr[i] > 0]
     highest = max([sum(i) for i in arr])
-    print(highest)
+    return highest
     
     # print(arr.index(max(arr)))
     # TODO: group elements together and count the number of elements in each group
