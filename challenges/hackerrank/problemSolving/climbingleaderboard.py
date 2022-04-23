@@ -9,10 +9,6 @@ def denseRanker(ranked):
         ranking.append(place)
     return ranking
 
-            
-                
-
-
 def climbingLeaderboard(ranked, player):
 
     ranked = sorted(list(set(ranked)))
@@ -24,10 +20,6 @@ def climbingLeaderboard(ranked, player):
             i += 1
         result.append(n - i + 1) 
     return result
-            
-
-        
-    
 
 
 print(climbingLeaderboard([100, 100, 50, 40, 40, 20, 10], [5, 25, 50, 120]))
