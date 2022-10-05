@@ -14,7 +14,7 @@ int rfactorial(int n){
     return n * rfactorial(n - 1);
 }
 
-int trfactorial(int n, int running_total=1){
+int trfactorial(int n, int running_total){
     if(n == 0) return running_total;
     else if (n <= 0) return n;
     else {
@@ -26,7 +26,7 @@ int trfactorial(int n, int running_total=1){
 int main(void){
     printf("%d\n", factorial(5));
     printf("%d\n", rfactorial(5));
-    printf("%d\n", trfactorial(-2));
+    printf("%d\n", trfactorial(5, 1));
     return 0;
 }
 
