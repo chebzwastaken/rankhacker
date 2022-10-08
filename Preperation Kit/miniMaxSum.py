@@ -17,4 +17,6 @@ def rminiMaxSum(arr):
     arr.sort()
     return sum(arr) - max(arr), sum(arr) - min(arr)
 
-print(rminiMaxSum([1, 3, 5, 7, 9]))
+if __name__ == "__main__":
+    arr = list(map(int, input().strip().split(' ')))
+    print(rminiMaxSum(arr))
