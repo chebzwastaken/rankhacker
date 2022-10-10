@@ -14,3 +14,4 @@ def plusMinus(arr):
     print(n_count / len(arr))
     print(p_count / len(arr))
     print(z_count / len(arr))
+    
