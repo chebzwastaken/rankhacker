@@ -1,9 +1,9 @@
-from math import sqrt
+import math 
 def primefinder(N):
     arr = list(range(2, N+1))
     count = 0
     k = arr[count]
-    while k <= sqrt(N) :
+    while k <= math.sqrt(N) :
         for i in range(k, N):
             print(arr)
             if (i*k) in arr:
@@ -25,12 +25,11 @@ def is_prime(n):
                 print(n, "is a prime number")
     else:
         print(n, "is not a prime number")
-is_prime(4)
 
 def first_prime(n):
     for i in range(n):
         for i in range(2, (2 ** n - 1) // 2):
-            if ((2 ** n) - 1) % i) == 0:
+            if (((2 ** n) - 1) % i) == 0:
                 print(f"2^{n} - 1 is not a prime number")
                 break
             else:
@@ -39,4 +38,29 @@ def first_prime(n):
         print(f"2^{n} - 1 is not a prime number")
 
 
-first_prime(56)
+# wilson theorem
+def wilson(n):
+    return 1 + sum([
+        math.floor(pow(n/sum([
+            math.floor(pow(math.cos(math.pi * (math.factorial(j - 1) + 1) / j), 2))
+            for j in range(1, i + 1)
+        ]), 1/n))
+        for i in range(1, pow(2, n) + 1)
+    ])
+
+
+def binary_search(arr, l, r, x):
+    if r >= l:
+        mid = l + (r - l) // 2
+        if arr[mid] == x:
+            return mid
+        elif arr[mid] > x:
+            return binary_search(arr, l, mid - 1, x)
+        else:
+            return binary_search(arr, mid + 1, r, x)
+    else:
+        return -1
+
+
+if __name__ == '__main__':
+    [print(wilson(i)) for i in range(1, 10+1)]
