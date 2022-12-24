@@ -57,8 +57,8 @@ class BinaryTree:
                 self.insert_helper(current_node.right, value)
             else:
                 current_node.right = Node(value)
-                
-# populate treed
+
+# populate tree
 
 tree = BinaryTree(1)
 
