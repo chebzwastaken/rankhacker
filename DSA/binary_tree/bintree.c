@@ -79,5 +79,8 @@ int main() {
 
     root = populate_tree(root, 10, 100);
 
+    insertNode(root, 10);
+    
+
     Inorder(root);
 }
