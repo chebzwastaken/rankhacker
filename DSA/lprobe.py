@@ -1,7 +1,9 @@
 class LinearProbe:
     def __init__(self, size):
         self.M = size
+
         self.a = [None] * size
+        # d is for data
         self.d = [None] * size
 
     def hash(self, key):
@@ -49,9 +51,15 @@ class LinearProbe:
             j += 1
             i = (initial_position + j) % self.M
             if i == initial_position:
-                return None
-        return None
+                return
+        return
 
     def print_table(self):
         for i in range(self.M):
             print("[%02d] %s %s" % (i, self.a[i], self.d[i]))
+
+if __name__ == "__main__":
+    lp = LinearProbe(42)
+    for i in range(100):
+        lp.put(i, i)
+    lp.print_table()
