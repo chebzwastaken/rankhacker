@@ -58,6 +58,33 @@ class BinaryTree:
             else:
                 current_node.right = Node(value)
 
+    def delete(self, value):
+        self.delete_helper(self.root, value)
+
+    def delete_helper(self, current_node, value):
+        if current_node:
+            if value < current_node.value:
+                current_node.left = self.delete_helper(current_node.left, value)
+            elif value > current_node.value:
+                current_node.right = self.delete_helper(current_node.right, value)
+            else:
+                if current_node.left is None and current_node.right is None:
+                    current_node = None
+                elif current_node.left is None:
+                    current_node = current_node.right
+                elif current_node.right is None:
+                    current_node = current_node.left
+                else:
+                    temp_node = self.get_max(current_node.left)
+                    current_node.value = temp_node.value
+                    current_node.left = self.delete_helper(current_node.left, temp_node.value)
+        return current_node
+
+    def get_max(self, current_node):
+        if current_node.right:
+            return self.get_max(current_node.right)
+        return current_node
+
 # populate tree
 
 tree = BinaryTree(1)
