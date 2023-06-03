@@ -13,7 +13,6 @@ vec3 palette( float t, vec3 a, vec3 b, vec3 c, vec3 d) {
 void main()
 {
     vec2 uv = (gl_FragCoord.xy * 2.0 - u_resolution) / u_resolution.y;
-    // vec2 uv = gl_FragCoord.xy / u_resolution.xy;
     vec2 uv0 = uv;
     
     vec3 finalColor = vec3(0.0); 
