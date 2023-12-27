@@ -9,3 +9,8 @@ def binarySearch(arr, l, r, x):
             return binarySearch(arr, mid + 1, r, x)
     else:
         return -1
+    
+
+
+arr = [1,2,3,4,5]
+print(arr[7 % len(arr)]) 
