@@ -26,10 +26,10 @@ void main() {
 
     
     
-    // u *= sin(u_time * .2); (experimental) (comment out the line below)
-    u *= cos(u / u_time);
+    // u *= sin(u / u_time * 20.) * 0.02; // ?(experimental) (comment out the line below)
+   
 
-    // u += u - r; // mirror
+    u += u - r; // mirror
 
 
     // Set the output color
@@ -69,3 +69,5 @@ void main() {
     // Set the output color
     gl_FragColor = O;
 }
+
+// render
