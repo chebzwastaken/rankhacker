@@ -24,3 +24,12 @@ class Heap:
         return "Heap({!r})".format(list(self))
 
     
+# Path: DSA/heap.py
+
+if __name__ == "__main__":
+    h = Heap([1, 3, 5, 7, 9, 2, 4, 6, 8, 0], key=lambda x: -x)
+    print(h)
+    h.push(10)
+
+    while h:
+        print(h.pop(), end=' ')

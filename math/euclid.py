@@ -1,4 +1,5 @@
 def euclid(a, b):
+    """Return the greatest common divisor of a and b."""
     v = []
     if b == 0:
         return a
@@ -8,4 +9,3 @@ def euclid(a, b):
     return euclid(b, a % b)
 
 print(euclid(123456789, 12345))
-# without a while loop LETS FUCKKING GOOOOOOOOO
