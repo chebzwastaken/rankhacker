@@ -18,8 +18,6 @@ def topKFrequent(nums, k):
 
 
 # how to take nums[i] and sum the rest 
-
-# Path: challenges/leetcode/sumrest.py
 def sumrest(nums):
     """
     :type nums: List[int]
