@@ -15,4 +15,8 @@ class Circle:
 
     def area(self):
         return math.pi * self.radius ** 2
+    
+
+c = Circle(math.pi)
+print(c.area())
 
