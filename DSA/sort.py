@@ -1,78 +1,94 @@
-def partition(arr, low, high):
-    i = (low-1)         # index of smaller element
-    pivot = arr[high]     # pivot
-
-    for j in range(low, high):
-
-        # If current element is smaller than or
-        # equal to pivot
-        if arr[j] <= pivot:
-
-            # increment index of smaller element
-            i = i+1
-            arr[i], arr[j] = arr[j], arr[i]
+class Sort: 
+    def __init__(self, array):
+        self.array = array
     
-    # swap arr[i+1] and arr[high] (or pivot)c
-    arr[i+1], arr[high] = arr[high], arr[i+1]
-    return (i+1)
 
-def quickSort(arr, low, high):
-    if len(arr) == 1:
-        return arr
-    if low < high:
+    def insertionSort(self):
+        for step in range(1, len(self.array)):
+            key = self.array[step]
+            j = step - 1
+            
+            while j >= 0 and key < self.array[j]:
+                self.array[j + 1] = self.array[j]
+                j = j - 1
+            
+            self.array[j + 1] = key
+        return self.array
+    
+    def _partition(self, low, high):
+        i = (low-1)         # index of smaller element
+        pivot = self.array[high]     # pivot
 
-        # pi is partitioning index, arr[p] is now
-        # at right place
-        pi = partition(arr, low, high)
+        for j in range(low, high):
 
-        # Separately sort elements before
-        # partition and after partition
-        quickSort(arr, low, pi-1)
-        quickSort(arr, pi+1, high)
+            # If current element is smaller than or
+            # equal to pivot
+            if self.array[j] <= pivot:
+
+                # increment index of smaller element
+                i = i+1
+                self.array[i], self.array[j] = self.array[j], self.array[i]
+        
+        # swap arr[i+1] and arr[high] (or pivot)c
+        self.array[i+1], self.array[high] = self.array[high], self.array[i+1]
+        return (i+1)
+
+    def quickSort(self, low, high):
+        if len(self.array) == 1:
+            return self.array
+        if low < high:
+
+            # pi is partitioning index, arr[p] is now
+            # at right place
+            pi = self._partition(low, high)
+
+            # Separately sort elements before
+            # partition and after partition
+            self.quickSort(low, pi-1)
+            self.quickSort(pi+1, high)
+        return self.array 
+    
+    def mergeSort(self):
+        self._mergeSort(self.array)
+        return self.array
 
 
-# mergesort
+    # mergesort
+    def _mergeSort(self, array):
+        if len(array) > 1:
+            mid = len(array) // 2
+            L = array[:mid]
+            R = array[mid:]
 
-def mergeSort(arr):
-    if len(arr) > 1:
- 
-        mid = len(arr)//2 # Finding the mid of the array
-        L = arr[:mid] # Dividing the array elements
-        R = arr[mid:] # into 2 halves
- 
-        mergeSort(L) # Sorting the first half
-        mergeSort(R) # Sorting the second half
- 
-        i = j = k = 0
- 
-        # Copy data to temp arrays L[] and R[]
-        while i < len(L) and j < len(R):
-            if L[i] < R[j]:
-                arr[k] = L[i]
+            self._mergeSort(L)
+            self._mergeSort(R)
+
+            i = j = k = 0
+
+            while i < len(L) and j < len(R):
+                if L[i] < R[j]:
+                    array[k] = L[i]
+                    i += 1
+                else:
+                    array[k] = R[j]
+                    j += 1
+                k += 1
+
+            while i < len(L):
+                array[k] = L[i]
                 i += 1
-            else:
-                arr[k] = R[j]
+                k += 1
+
+            while j < len(R):
+                array[k] = R[j]
                 j += 1
-            k += 1
- 
-        # Checking if any element was left
-        while i < len(L):
-            arr[k] = L[i]
-            i += 1
-            k += 1
- 
-        while j < len(R):
-            arr[k] = R[j]
-            j += 1
-            k += 1
+                k += 1
+        
 
 
-# Driver code to test above
-arr = [10, 7, 8, 9, 1, 5]
-n = len(arr)
-quickSort(arr, 0, n-1)
-print("Quick Sort Sorted array is:", arr)
-
-arr = [12, 11, 13, 5, 6, 7]
-mergeSort(arr)
-print("Merge Sort Sorted array is:", arr)
+if __name__ == "__main__":
+    arr = [12, 11, 13, 5, 6, 7]
+    s = Sort(arr)
+    print(s.insertionSort())
+    print(s.quickSort(0, len(arr) - 1))
+    print(s.mergeSort(arr))
