@@ -14,4 +14,4 @@ def binarySearch(arr, target):
         else:
             return f"It's Here {arr[mid]}"
     return False
-print(binarySearch([1, 2, 3, 4, 5], 1))
+print(binarySearch([1, 2, 3, 4, 5], 6))
