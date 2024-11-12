@@ -19,7 +19,28 @@ def selection_sort(arr):
         new_arr.append(arr.pop(get_smallest(arr)))
     return new_arr
 
-arr = [2, 4, 6, 1, 7, 3, 5]
-print(get_smallest(arr))
-print(selection_sort(arr))
+def quicksort(arr):
+    """
+    This is quicksort. 
 
+    O(n log n), it takes log n operations to sort but it has to go through 
+    every element with comparing to the pivot. 
+
+    previous knowledge: recursion, divide and conquer. :
+    """
+    if len(arr) < 2: 
+        return arr
+    else: 
+        pivot = arr[0]
+        less = [i for i in arr[1:] if i <= pivot]
+        greater = [i for i in arr[1:] if i > pivot]
+        return quicksort(less) + [pivot] + quicksort(greater) 
+
+
+if __name__ == "__main__":
+    arr = [2, 4, 6, 1, 7, 3, 5]
+    # print(get_smallest(arr))
+    # print(selection_sort(arr))
+    
+    print(quicksort(arr))
+    
